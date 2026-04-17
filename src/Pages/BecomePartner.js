@@ -41,7 +41,6 @@ const BecomePartner = () => {
     window.location.href = 'tel:6309100101';
   };
 
-  // New function for direct registration
   const handleDirectRegistration = (type) => {
     if (type === 'vendor') {
       window.open(REGISTRATION_URLS.vendor, '_blank');
@@ -69,20 +68,17 @@ const BecomePartner = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    // Validate form
     if (!formData.name || !formData.phoneNumber || !formData.email || !formData.partnerType) {
       showCustomError('Please fill all the fields!');
       return;
     }
 
-    // Validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
       showCustomError('Please enter a valid email address!');
       return;
     }
 
-    // Validate phone number (Indian format)
     const phoneRegex = /^[6-9]\d{9}$/;
     const cleanPhone = formData.phoneNumber.replace(/\D/g, '');
     if (!phoneRegex.test(cleanPhone)) {
@@ -101,25 +97,19 @@ const BecomePartner = () => {
       });
 
       if (response.data.success) {
-        // Show success popup
         setShowSuccessPopup(true);
-        
-        // Reset form
         setFormData({
           name: '',
           phoneNumber: '',
           email: '',
           partnerType: ''
         });
-
-        // Auto hide after 3 seconds
         setTimeout(() => {
           setShowSuccessPopup(false);
         }, 3000);
       }
     } catch (error) {
       console.error('Error submitting form:', error);
-      
       let errorMsg = 'Failed to submit enquiry. Please try again.';
       if (error.response) {
         errorMsg = error.response.data.message || errorMsg;
@@ -202,52 +192,42 @@ const BecomePartner = () => {
   const currentPartner = partnerTypes.find(partner => partner.id === activeTab);
 
   return (
-    <div id="join" className="min-h-screen bg-gradient-to-br from-green-50 to-white py-20 overflow-hidden relative">
-      {/* Error Popup - Center Me */}
+    <div id="join" className="min-h-screen bg-gradient-to-br from-green-50 to-white py-12 sm:py-20 overflow-hidden relative">
+      {/* Error Popup */}
       {showErrorPopup && (
         <div className="fixed inset-0 flex items-center justify-center z-50 p-4">
-          <div className="bg-red-500 text-white px-6 py-4 rounded-xl shadow-2xl max-w-sm w-full animate-popUp">
-            <div className="flex items-center space-x-3">
+          <div className="bg-red-500 text-white px-4 py-3 sm:px-6 sm:py-4 rounded-xl shadow-2xl max-w-xs sm:max-w-sm w-full animate-popUp">
+            <div className="flex items-center space-x-2 sm:space-x-3">
               <div className="bg-white bg-opacity-20 p-2 rounded-full">
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                 </svg>
               </div>
               <div className="flex-1">
-                <p className="font-semibold">Error</p>
-                <p className="text-sm opacity-90">{errorMessage}</p>
+                <p className="font-semibold text-sm sm:text-base">Error</p>
+                <p className="text-xs sm:text-sm opacity-90">{errorMessage}</p>
               </div>
-              <button 
-                onClick={() => setShowErrorPopup(false)}
-                className="text-white hover:text-gray-200 text-lg"
-              >
-                ✕
-              </button>
+              <button onClick={() => setShowErrorPopup(false)} className="text-white hover:text-gray-200 text-lg">✕</button>
             </div>
           </div>
         </div>
       )}
 
-      {/* Success Popup - Center Me */}
+      {/* Success Popup */}
       {showSuccessPopup && (
         <div className="fixed inset-0 flex items-center justify-center z-50 p-4">
-          <div className="bg-gradient-to-r from-green-500 to-green-600 text-white px-6 py-4 rounded-xl shadow-2xl max-w-sm w-full animate-popUp">
-            <div className="flex items-center space-x-3">
+          <div className="bg-gradient-to-r from-green-500 to-green-600 text-white px-4 py-3 sm:px-6 sm:py-4 rounded-xl shadow-2xl max-w-xs sm:max-w-sm w-full animate-popUp">
+            <div className="flex items-center space-x-2 sm:space-x-3">
               <div className="bg-white bg-opacity-30 p-2 rounded-full">
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7"></path>
                 </svg>
               </div>
               <div className="flex-1">
-                <p className="font-semibold">Success!</p>
-                <p className="text-sm opacity-90">Enquiry submitted successfully</p>
+                <p className="font-semibold text-sm sm:text-base">Success!</p>
+                <p className="text-xs sm:text-sm opacity-90">Enquiry submitted successfully</p>
               </div>
-              <button 
-                onClick={() => setShowSuccessPopup(false)}
-                className="text-white hover:text-gray-200 text-lg"
-              >
-                ✕
-              </button>
+              <button onClick={() => setShowSuccessPopup(false)} className="text-white hover:text-gray-200 text-lg">✕</button>
             </div>
           </div>
         </div>
@@ -256,128 +236,130 @@ const BecomePartner = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header Section */}
-        <div className={`text-center mb-16 transform transition-all duration-1000 ${
+        <div className={`text-center mb-12 sm:mb-16 transform transition-all duration-1000 ${
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
         }`}>
-          <div className="inline-flex items-center space-x-2 bg-white rounded-full px-6 py-3 border border-green-200 shadow-lg mb-8">
-            <span className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></span>
-            <span className="text-green-700 font-bold">Limited Spots Available</span>
+          <div className="inline-flex items-center space-x-2 bg-white rounded-full px-4 py-2 sm:px-6 sm:py-3 border border-green-200 shadow-lg mb-6 sm:mb-8">
+            <span className="w-2 h-2 sm:w-3 sm:h-3 bg-green-500 rounded-full animate-pulse"></span>
+            <span className="text-green-700 font-bold text-xs sm:text-sm">Limited Spots Available</span>
           </div>
 
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-4 sm:mb-6 px-2">
             Join{' '}
             <span className="bg-gradient-to-r from-green-600 to-green-800 bg-clip-text text-transparent">
               VEGIFFY Family
             </span>
           </h1>
           
-          <p className="text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-medium">
+          <p className="text-base sm:text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-medium px-4">
             Grow your business or start earning with India's fastest growing vegetarian food platform. 
             Be part of our success story!
           </p>
         </div>
 
-        {/* Partner Type Tabs */}
-        <div className="flex justify-center mb-12">
-          <div className="bg-white rounded-2xl p-2 shadow-xl border border-gray-200">
+        {/* Partner Type Tabs - Mobile Friendly Scrollable */}
+        <div className="flex justify-center mb-8 sm:mb-12 overflow-x-auto px-2">
+          <div className="bg-white rounded-2xl p-1.5 sm:p-2 shadow-xl border border-gray-200 flex flex-nowrap min-w-max">
             {partnerTypes.map((partner) => (
               <button
                 key={partner.id}
                 onClick={() => setActiveTab(partner.id)}
-                className={`px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 ${
+                className={`px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 rounded-xl font-bold text-sm sm:text-base md:text-lg transition-all duration-300 whitespace-nowrap ${
                   activeTab === partner.id
                     ? `bg-gradient-to-r ${partner.gradient} text-white shadow-lg transform scale-105`
                     : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
                 }`}
               >
-                <span className="text-2xl mr-3">{partner.icon}</span>
-                {partner.title}
+                <span className="text-xl sm:text-2xl mr-1 sm:mr-2 md:mr-3">{partner.icon}</span>
+                <span className="hidden xs:inline">{partner.title}</span>
+                <span className="xs:hidden">{partner.id === 'vendor' ? 'Vendor' : 'Ambassador'}</span>
               </button>
             ))}
           </div>
         </div>
 
-        {/* New Quick Registration Buttons */}
-        <div className="flex justify-center mb-8 gap-4">
+        {/* Quick Registration Buttons - Stack on Mobile */}
+        <div className="flex flex-col sm:flex-row justify-center mb-8 gap-3 sm:gap-4 px-2">
           <button
             onClick={() => handleDirectRegistration('vendor')}
-            className="bg-gradient-to-r from-green-500 to-green-600 text-white px-8 py-3 rounded-full font-bold text-lg hover:from-green-600 hover:to-green-700 transform hover:scale-105 transition-all duration-300 shadow-lg flex items-center gap-2"
+            className="bg-gradient-to-r from-green-500 to-green-600 text-white px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 rounded-full font-bold text-sm sm:text-base md:text-lg hover:from-green-600 hover:to-green-700 transform hover:scale-105 transition-all duration-300 shadow-lg flex items-center justify-center gap-2"
           >
             <span>🏪</span>
-            Join Us as a Vendor
-            <span className="text-sm bg-white text-green-600 px-2 py-1 rounded-full">Instant Registration</span>
+            Join as Vendor
+            <span className="text-xs bg-white text-green-600 px-1.5 sm:px-2 py-0.5 rounded-full">Instant</span>
           </button>
           
           <button
             onClick={() => handleDirectRegistration('ambassador')}
-            className="bg-gradient-to-r from-green-700 to-green-800 text-white px-8 py-3 rounded-full font-bold text-lg hover:from-green-800 hover:to-green-900 transform hover:scale-105 transition-all duration-300 shadow-lg flex items-center gap-2"
+            className="bg-gradient-to-r from-green-700 to-green-800 text-white px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 rounded-full font-bold text-sm sm:text-base md:text-lg hover:from-green-800 hover:to-green-900 transform hover:scale-105 transition-all duration-300 shadow-lg flex items-center justify-center gap-2"
           >
             <span>🌟</span>
-            Join Us as Ambassador
-            <span className="text-sm bg-white text-green-700 px-2 py-1 rounded-full">Direct Apply</span>
+            Join as Ambassador
+            <span className="text-xs bg-white text-green-700 px-1.5 sm:px-2 py-0.5 rounded-full">Direct</span>
           </button>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        {/* Main Grid - Single column on mobile */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-start px-2">
           
           {/* Left Side - Content */}
-          <div className="space-y-8">
+          <div className="space-y-6 sm:space-y-8">
             {/* Main Card */}
-            <div className={`bg-gradient-to-br ${currentPartner.gradient} rounded-3xl p-8 text-white shadow-2xl transform transition-all duration-500 hover:scale-105`}>
-              <div className="flex items-center space-x-4 mb-6">
-                <div className="w-20 h-20 bg-white bg-opacity-20 rounded-2xl flex items-center justify-center text-3xl backdrop-blur-sm">
+            <div className={`bg-gradient-to-br ${currentPartner.gradient} rounded-2xl sm:rounded-3xl p-5 sm:p-8 text-white shadow-2xl transform transition-all duration-500 hover:scale-105`}>
+              <div className="flex items-center space-x-3 sm:space-x-4 mb-4 sm:mb-6">
+                <div className="w-14 h-14 sm:w-20 sm:h-20 bg-white bg-opacity-20 rounded-xl sm:rounded-2xl flex items-center justify-center text-2xl sm:text-3xl backdrop-blur-sm">
                   {currentPartner.icon}
                 </div>
                 <div>
-                  <h2 className="text-4xl font-bold mb-2">{currentPartner.title}</h2>
-                  <p className="text-white text-opacity-90 text-lg">{currentPartner.description}</p>
+                  <h2 className="text-xl sm:text-2xl md:text-4xl font-bold mb-1 sm:mb-2">{currentPartner.title}</h2>
+                  <p className="text-white text-opacity-90 text-sm sm:text-base md:text-lg">{currentPartner.description}</p>
                 </div>
               </div>
 
-              {/* Stats */}
-              <div className="grid grid-cols-3 gap-4 mb-6">
+              {/* Stats - Responsive grid */}
+              <div className="grid grid-cols-3 gap-2 sm:gap-4 mb-4 sm:mb-6">
                 {currentPartner.stats.map((stat, index) => (
-                  <div key={index} className="text-center bg-white bg-opacity-20 rounded-xl p-4 backdrop-blur-sm">
-                    <div className="text-2xl font-bold">{stat.number}</div>
-                    <div className="text-white text-opacity-80 text-sm">{stat.label}</div>
+                  <div key={index} className="text-center bg-white bg-opacity-20 rounded-lg sm:rounded-xl p-2 sm:p-4 backdrop-blur-sm">
+                    <div className="text-base sm:text-xl md:text-2xl font-bold">{stat.number}</div>
+                    <div className="text-white text-opacity-80 text-[10px] sm:text-xs md:text-sm">{stat.label}</div>
                   </div>
                 ))}
               </div>
 
-              <div className="flex gap-4">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <button 
-                  className="flex-1 bg-white text-gray-900 py-4 px-6 rounded-xl font-bold text-lg hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 shadow-lg flex items-center justify-center gap-2"
+                  className="w-full sm:flex-1 bg-white text-gray-900 py-2.5 sm:py-4 px-4 rounded-xl font-bold text-sm sm:text-base md:text-lg hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 shadow-lg flex items-center justify-center gap-2"
                   onClick={() => handleDirectRegistration(activeTab)}
                 >
                   Direct Registration
-                  <span className="text-xl">🚀</span>
+                  <span className="text-lg sm:text-xl">🚀</span>
                 </button>
                 
                 <button 
-                  className="flex-1 bg-white bg-opacity-20 border-2 border-white text-white py-4 px-6 rounded-xl font-bold text-lg hover:bg-white hover:bg-opacity-30 transform hover:scale-105 transition-all duration-300 shadow-lg flex items-center justify-center gap-2"
+                  className="w-full sm:flex-1 bg-white bg-opacity-20 border-2 border-white text-white py-2.5 sm:py-4 px-4 rounded-xl font-bold text-sm sm:text-base md:text-lg hover:bg-white hover:bg-opacity-30 transform hover:scale-105 transition-all duration-300 shadow-lg flex items-center justify-center gap-2"
                   onClick={() => {
                     setFormData(prev => ({ ...prev, partnerType: currentPartner.title }));
                     document.getElementById('partnerForm').scrollIntoView({ behavior: 'smooth' });
                   }}
                 >
                   Get More Info
-                  <span className="text-xl">📋</span>
+                  <span className="text-lg sm:text-xl">📋</span>
                 </button>
               </div>
             </div>
 
-            {/* Features Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Features Grid - Responsive */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-6">
               {currentPartner.features.map((feature, index) => (
                 <div 
                   key={index}
-                  className="bg-white rounded-2xl p-6 border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group"
+                  className="bg-white rounded-xl sm:rounded-2xl p-3 sm:p-6 border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group"
                 >
-                  <div className="flex items-center space-x-4">
-                    <div className={`w-12 h-12 ${currentPartner.color} rounded-xl flex items-center justify-center text-white text-xl group-hover:scale-110 transition-transform duration-300`}>
+                  <div className="flex items-center space-x-2 sm:space-x-4">
+                    <div className={`w-8 h-8 sm:w-12 sm:h-12 ${currentPartner.color} rounded-lg sm:rounded-xl flex items-center justify-center text-white text-sm sm:text-xl group-hover:scale-110 transition-transform duration-300`}>
                       ✓
                     </div>
-                    <span className="text-gray-900 font-semibold text-lg">{feature}</span>
+                    <span className="text-gray-900 font-semibold text-sm sm:text-base md:text-lg">{feature}</span>
                   </div>
                 </div>
               ))}
@@ -385,33 +367,33 @@ const BecomePartner = () => {
           </div>
 
           {/* Right Side - Success Stories & Form */}
-          <div className="space-y-8">
+          <div className="space-y-6 sm:space-y-8">
             {/* Success Stories */}
-            <div className="bg-white rounded-3xl p-8 border border-gray-200 shadow-xl">
-              <h3 className="text-3xl font-bold text-gray-900 mb-6 text-center">
+            <div className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 border border-gray-200 shadow-xl">
+              <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 sm:mb-6 text-center">
                 Success Stories ✨
               </h3>
-              <div className="space-y-6">
+              <div className="space-y-4 sm:space-y-6">
                 {successStories.map((story, index) => (
                   <div 
                     key={index}
-                    className="bg-gradient-to-r from-green-50 to-white rounded-2xl p-6 border border-green-200 hover:shadow-lg transition-all duration-300"
+                    className="bg-gradient-to-r from-green-50 to-white rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-green-200 hover:shadow-lg transition-all duration-300"
                   >
-                    <div className="flex items-center space-x-4">
-                      <div className="w-16 h-16 bg-green-600 rounded-2xl flex items-center justify-center text-2xl text-white">
+                    <div className="flex items-start sm:items-center space-x-3 sm:space-x-4 flex-col sm:flex-row">
+                      <div className="w-12 h-12 sm:w-16 sm:h-16 bg-green-600 rounded-xl sm:rounded-2xl flex items-center justify-center text-xl sm:text-2xl text-white mb-2 sm:mb-0">
                         {story.image}
                       </div>
-                      <div className="flex-1">
-                        <div className="flex justify-between items-start">
+                      <div className="flex-1 w-full">
+                        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 sm:gap-0">
                           <div>
-                            <h4 className="font-bold text-gray-900 text-lg">{story.name}</h4>
-                            <p className="text-green-600 text-sm font-medium">{story.role}</p>
+                            <h4 className="font-bold text-gray-900 text-base sm:text-lg">{story.name}</h4>
+                            <p className="text-green-600 text-xs sm:text-sm font-medium">{story.role}</p>
                           </div>
-                          <div className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-bold">
+                          <div className="bg-green-100 text-green-700 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-bold self-start sm:self-auto">
                             {story.earnings}
                           </div>
                         </div>
-                        <p className="text-gray-600 mt-2 text-sm">{story.story}</p>
+                        <p className="text-gray-600 mt-2 text-xs sm:text-sm">{story.story}</p>
                       </div>
                     </div>
                   </div>
@@ -420,20 +402,20 @@ const BecomePartner = () => {
             </div>
 
             {/* Quick Join Form */}
-            <div id="partnerForm" className="bg-white rounded-3xl p-8 border border-gray-200 shadow-xl">
-              <h3 className="text-3xl font-bold text-gray-900 mb-6 text-center">
+            <div id="partnerForm" className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 border border-gray-200 shadow-xl">
+              <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 sm:mb-6 text-center">
                 Start Your Journey Today! 🎯
               </h3>
               
               <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <input 
                     type="text" 
                     name="name"
                     placeholder="Your Name"
                     value={formData.name}
                     onChange={handleInputChange}
-                    className="col-span-2 md:col-span-1 bg-gray-50 border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    className="w-full bg-gray-50 border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-sm sm:text-base"
                     required
                   />
                   <input 
@@ -442,7 +424,7 @@ const BecomePartner = () => {
                     placeholder="Phone Number"
                     value={formData.phoneNumber}
                     onChange={handleInputChange}
-                    className="col-span-2 md:col-span-1 bg-gray-50 border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    className="w-full bg-gray-50 border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-sm sm:text-base"
                     required
                   />
                 </div>
@@ -453,7 +435,7 @@ const BecomePartner = () => {
                   placeholder="Email Address"
                   value={formData.email}
                   onChange={handleInputChange}
-                  className="w-full bg-gray-50 border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                  className="w-full bg-gray-50 border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-sm sm:text-base"
                   required
                 />
                 
@@ -461,7 +443,7 @@ const BecomePartner = () => {
                   name="partnerType"
                   value={formData.partnerType}
                   onChange={handleInputChange}
-                  className="w-full bg-gray-50 border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                  className="w-full bg-gray-50 border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-sm sm:text-base"
                   required
                 >
                   <option value="">Select Partner Type</option>
@@ -475,24 +457,24 @@ const BecomePartner = () => {
                 <button 
                   type="submit"
                   disabled={loading}
-                  className={`w-full bg-gradient-to-r from-green-600 to-green-800 text-white py-4 px-6 rounded-xl font-bold text-lg hover:from-green-700 hover:to-green-900 transform hover:scale-105 transition-all duration-300 shadow-lg flex items-center justify-center ${
+                  className={`w-full bg-gradient-to-r from-green-600 to-green-800 text-white py-3 sm:py-4 px-6 rounded-xl font-bold text-sm sm:text-base md:text-lg hover:from-green-700 hover:to-green-900 transform hover:scale-105 transition-all duration-300 shadow-lg flex items-center justify-center ${
                     loading ? 'opacity-70 cursor-not-allowed' : ''
                   }`}
                 >
                   {loading ? (
                     <>
-                      <span className="inline-block animate-spin rounded-full h-6 w-6 border-t-2 border-b-2 border-white mr-3"></span>
+                      <span className="inline-block animate-spin rounded-full h-5 w-5 sm:h-6 sm:w-6 border-t-2 border-b-2 border-white mr-2 sm:mr-3"></span>
                       Submitting...
                     </>
                   ) : (
                     <>
                       Apply Now - Get Instant Response! 
-                      <span className="ml-2">📲</span>
+                      <span className="ml-2 text-lg sm:text-xl">📲</span>
                     </>
                   )}
                 </button>
 
-                <p className="text-center text-gray-500 text-sm">
+                <p className="text-center text-gray-500 text-xs sm:text-sm">
                   ⚡ Our team will contact you within 2 hours
                 </p>
               </form>
@@ -500,48 +482,48 @@ const BecomePartner = () => {
           </div>
         </div>
 
-        {/* Bottom CTA Section */}
-        <div className="mt-20 text-center">
-          <div className="bg-gradient-to-r from-green-600 to-green-800 rounded-3xl p-12 text-white shadow-2xl">
-            <h2 className="text-4xl font-bold mb-4">
+        {/* Bottom CTA Section - Responsive */}
+        <div className="mt-12 sm:mt-20 text-center px-2">
+          <div className="bg-gradient-to-r from-green-600 to-green-800 rounded-2xl sm:rounded-3xl p-6 sm:p-12 text-white shadow-2xl">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">
               Ready to Start Your Success Story?
             </h2>
-            <p className="text-xl text-white text-opacity-90 mb-8 max-w-2xl mx-auto">
+            <p className="text-base sm:text-xl text-white text-opacity-90 mb-6 sm:mb-8 max-w-2xl mx-auto px-4">
               Join 1000+ successful partners who are growing with VEGIFFY. 
               Don't miss this opportunity to be part of India's vegetarian food revolution!
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
               <button 
                 onClick={() => handleDirectRegistration('vendor')}
-                className="bg-white text-green-600 px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 shadow-lg flex items-center justify-center gap-2"
+                className="bg-white text-green-600 px-4 sm:px-6 md:px-8 py-2.5 sm:py-4 rounded-xl font-bold text-sm sm:text-base md:text-lg hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 shadow-lg flex items-center justify-center gap-2"
               >
                 🏪 Register as Vendor
               </button>
               <button 
                 onClick={() => handleDirectRegistration('ambassador')}
-                className="bg-white text-green-700 px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 shadow-lg flex items-center justify-center gap-2"
+                className="bg-white text-green-700 px-4 sm:px-6 md:px-8 py-2.5 sm:py-4 rounded-xl font-bold text-sm sm:text-base md:text-lg hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 shadow-lg flex items-center justify-center gap-2"
               >
                 🌟 Register as Ambassador
               </button>
               <button 
                 onClick={handleWhatsAppClick}
-                className="bg-black text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-800 transform hover:scale-105 transition-all duration-300 shadow-lg border border-white flex items-center justify-center gap-2"
+                className="bg-black text-white px-4 sm:px-6 md:px-8 py-2.5 sm:py-4 rounded-xl font-bold text-sm sm:text-base md:text-lg hover:bg-gray-800 transform hover:scale-105 transition-all duration-300 shadow-lg border border-white flex items-center justify-center gap-2"
               >
                 💬 WhatsApp Us
               </button>
             </div>
 
-            <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+            <div className="mt-6 sm:mt-8 grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-4 text-center">
               {[
                 { number: '2hrs', text: 'Quick Onboarding' },
                 { number: '24/7', text: 'Dedicated Support' },
                 { number: '100%', text: 'Vegetarian Promise' },
                 { number: '0₹', text: 'No Hidden Fees' }
               ].map((item, index) => (
-                <div key={index} className="bg-white bg-opacity-20 rounded-xl p-4 backdrop-blur-sm">
-                  <div className="text-2xl font-bold">{item.number}</div>
-                  <div className="text-white text-opacity-80 text-sm">{item.text}</div>
+                <div key={index} className="bg-white bg-opacity-20 rounded-lg sm:rounded-xl p-2 sm:p-4 backdrop-blur-sm">
+                  <div className="text-sm sm:text-xl md:text-2xl font-bold">{item.number}</div>
+                  <div className="text-white text-opacity-80 text-[10px] sm:text-xs md:text-sm">{item.text}</div>
                 </div>
               ))}
             </div>
@@ -549,7 +531,6 @@ const BecomePartner = () => {
         </div>
       </div>
 
-      {/* Add CSS animations */}
       <style jsx>{`
         @keyframes popUp {
           from { 
@@ -564,6 +545,15 @@ const BecomePartner = () => {
         
         .animate-popUp {
           animation: popUp 0.2s ease-out;
+        }
+
+        @media (max-width: 480px) {
+          .xs\\:inline {
+            display: inline;
+          }
+          .xs\\:hidden {
+            display: none;
+          }
         }
       `}</style>
     </div>
