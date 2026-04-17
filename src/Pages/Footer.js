@@ -31,7 +31,7 @@ const Footer = () => {
     {
       title: 'Join Our Team',
       links: [
-        { name: 'Vegiffyy Express', href: '#' },
+        { name: 'VEGIFFY Express', href: '#' },
         { name: 'Become Ambassador', href: '#' },
         { name: 'Careers', href: '#' },
         { name: 'Internships', href: '#' }
@@ -89,7 +89,7 @@ const Footer = () => {
                   />
                 </div>
                 <div>
-                  <h3 className="text-4xl font-bold text-white drop-shadow-lg">VEGIFFYY</h3>
+                  <h3 className="text-4xl font-bold text-white drop-shadow-lg">VEGIFFY</h3>
                   <p className="text-green-100 text-lg font-medium">100% Pure Veg Food Platform</p>
                 </div>
               </div>
@@ -99,17 +99,7 @@ const Footer = () => {
                 join as vendor or delivery partner, and be part of our growing community.
               </p>
 
-              {/* Cities Section */}
-              <div className="mb-6">
-                <h4 className="text-white font-semibold mb-3">Available in Cities:</h4>
-                <div className="flex flex-wrap gap-2">
-                  {cities.slice(0, 6).map(city => (
-                    <span key={city} className="px-3 py-1 bg-white/20 rounded-full text-green-100 text-sm">
-                      {city}
-                    </span>
-                  ))}
-                </div>
-              </div>
+            
               
               {/* Social Links */}
               <div className="flex space-x-4">
@@ -162,7 +152,7 @@ const Footer = () => {
               
               {/* Copyright */}
               <div className="text-white text-sm font-medium">
-                © {currentYear} VEGIFFYY - Pure Veg Food Platform. All rights reserved.
+                © {currentYear} VEGIFFY - Pure Veg Food Platform. All rights reserved.
               </div>
 
               {/* Powered By Section with JEIPEX Logo */}

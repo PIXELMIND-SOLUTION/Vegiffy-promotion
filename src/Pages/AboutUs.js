@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import founderImage from '../images/founder.jpeg'; // Adjust path as needed
 
 const AboutVegiffy = () => {
   const [currentMilestone, setCurrentMilestone] = useState(0);
@@ -8,7 +7,7 @@ const AboutVegiffy = () => {
     {
       year: '2025',
       title: 'Foundation',
-      description: 'VEGIFFYY was founded with a vision to create India\'s largest pure vegetarian food platform.',
+      description: 'VEGIFFY was founded with a vision to create India\'s largest pure vegetarian food platform.',
       icon: '🚀',
       color: 'bg-gradient-to-br from-green-500 to-green-600'
     },
@@ -35,15 +34,34 @@ const AboutVegiffy = () => {
     }
   ];
 
+  /* Commented out team members section
   const teamMembers = [
     {
       name: 'Rahul Jain',
-      role: 'Founder & President',
-      expertise: 'Visionary Leader & Business Strategist',
+      role: 'Founder & Director',
       image: founderImage,
       color: 'bg-gradient-to-br from-green-600 to-green-800'
+    },
+    {
+      name: 'Pankaj Jain',
+      role: 'CO Founder & Director',
+      image: teamMember1,
+      color: 'bg-gradient-to-br from-green-500 to-green-700'
+    },
+    {
+      name: 'Pooja Jain',
+      role: 'CO Founder & Director',
+      image: teamMember2,
+      color: 'bg-gradient-to-br from-green-600 to-green-800'
+    },
+    {
+      name: 'Nikhil Jain',
+      role: 'CO Founder & Director',
+      image: teamMember3,
+      color: 'bg-gradient-to-br from-green-700 to-green-900'
     }
   ];
+  */
 
   const values = [
     {
@@ -87,20 +105,34 @@ const AboutVegiffy = () => {
         <div className="text-center mb-20">
           <div className="inline-flex items-center space-x-3 bg-white rounded-full px-8 py-4 border-2 border-green-200 shadow-2xl mb-8 animate-pulse">
             <span className="w-3 h-3 bg-green-500 rounded-full animate-bounce"></span>
-            <span className="text-green-800 font-bold text-lg">India's Trusted Vegetarian Food Platform</span>
+            <span className="text-green-800 font-bold text-lg">Operated by Jainity Eats India Private Limited</span>
           </div>
 
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-gray-900 mb-8">
             About{' '}
             <span className="bg-gradient-to-r from-green-600 to-green-800 bg-clip-text text-transparent">
-              VEGIFFYY
+              VEGIFFY
             </span>
           </h2>
           
-          <p className="text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed font-medium">
-            VEGIFFYY is India's fastest growing vegetarian food platform, connecting customers with the best 
-            vegetarian food vendors, delivery partners, and creating opportunities for everyone.
-          </p>
+          <div className="text-2xl text-gray-700 max-w-6xl mx-auto leading-relaxed font-medium space-y-6">
+            <p>
+              VEGIFFY is a dedicated <span className="text-green-600 font-bold">100% Pure Vegetarian</span> food delivery platform, 
+              created with a simple yet powerful mission — to make vegetarian food easy to discover, order, and enjoy.
+            </p>
+            
+            <p>
+              Operated by <span className="text-green-600 font-bold">Jainity Eats India Private Limited</span>, VEGIFFY connects customers 
+              with trusted pure vegetarian restaurants, hotels, sweet shops, juice parlours, and cloud kitchens, 
+              ensuring every meal ordered through our platform follows strict vegetarian standards.
+            </p>
+            
+            <p className="text-green-700 font-semibold">
+              We understand the importance of food choices rooted in health, belief, culture, and lifestyle. 
+              That's why VEGIFFY partners only with verified vegetarian vendors and maintains a clear policy 
+              of <span className="font-bold">zero tolerance for non-vegetarian food</span> on our platform.
+            </p>
+          </div>
         </div>
 
         {/* Mission & Vision */}
@@ -146,6 +178,50 @@ const AboutVegiffy = () => {
           </div>
         </div>
 
+        {/* Company Overview */}
+        <div className="bg-white rounded-3xl p-12 border-2 border-green-200 shadow-2xl mb-20">
+          <div className="text-center mb-12">
+            <h3 className="text-4xl font-black text-gray-900 mb-6">
+              Our{' '}
+              <span className="bg-gradient-to-r from-green-600 to-green-800 bg-clip-text text-transparent">
+                Commitment
+              </span>
+            </h3>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center p-6">
+              <div className="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-green-500 to-green-600 rounded-3xl flex items-center justify-center text-4xl text-white shadow-2xl">
+                🛡️
+              </div>
+              <h4 className="text-2xl font-black text-gray-900 mb-4">Zero Tolerance Policy</h4>
+              <p className="text-gray-700 leading-relaxed font-medium">
+                Strict no non-vegetarian food policy. Every vendor is thoroughly verified for 100% vegetarian authenticity.
+              </p>
+            </div>
+
+            <div className="text-center p-6">
+              <div className="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-green-600 to-green-700 rounded-3xl flex items-center justify-center text-4xl text-white shadow-2xl">
+                ✅
+              </div>
+              <h4 className="text-2xl font-black text-gray-900 mb-4">Verified Partners Only</h4>
+              <p className="text-gray-700 leading-relaxed font-medium">
+                We partner only with verified pure vegetarian restaurants, hotels, sweet shops, and cloud kitchens.
+              </p>
+            </div>
+
+            <div className="text-center p-6">
+              <div className="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-green-700 to-green-800 rounded-3xl flex items-center justify-center text-4xl text-white shadow-2xl">
+                🌱
+              </div>
+              <h4 className="text-2xl font-black text-gray-900 mb-4">Cultural Sensitivity</h4>
+              <p className="text-gray-700 leading-relaxed font-medium">
+                Understanding the importance of food choices rooted in health, belief, culture, and lifestyle.
+              </p>
+            </div>
+          </div>
+        </div>
+
         {/* Our Journey - Timeline */}
         <div className="bg-white rounded-3xl p-12 border-2 border-green-200 shadow-2xl mb-20">
           <div className="text-center mb-16">
@@ -181,53 +257,55 @@ const AboutVegiffy = () => {
           </div>
         </div>
 
-        {/* Leadership Team */}
+        {/* Leadership Team - Commented Out
         <div className="mb-20">
           <div className="text-center mb-16">
             <h3 className="text-4xl font-black text-gray-900 mb-6">
               Meet Our{' '}
               <span className="bg-gradient-to-r from-green-600 to-green-800 bg-clip-text text-transparent">
-                Founder
+                Leadership Team
               </span>
             </h3>
             <p className="text-xl text-gray-700 font-medium max-w-2xl mx-auto">
-              The visionary behind India's best vegetarian food platform
+              The visionaries behind India's best vegetarian food platform
             </p>
           </div>
 
-          <div className="flex justify-center">
-            <div className="bg-white rounded-3xl p-12 border-2 border-green-200 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105 group text-center max-w-md w-full relative overflow-hidden">
-              {/* Background Pattern */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-green-50 rounded-full -translate-y-16 translate-x-16 opacity-50"></div>
-              
-              {/* Founder Image with Better Cropping */}
-              <div className="relative mx-auto mb-8">
-                <div className="w-48 h-48 mx-auto bg-gradient-to-br from-green-500 to-green-700 rounded-full p-2 shadow-2xl transform group-hover:scale-110 transition-all duration-500">
-                  <div className="w-full h-full rounded-full overflow-hidden border-4 border-white shadow-inner">
-                    <img 
-                      src={teamMembers[0].image} 
-                      alt={teamMembers[0].name}
-                      className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-all duration-500"
-                      style={{ objectPosition: 'center 25%' }} // Adjust this to show face properly
-                    />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {teamMembers.map((member, index) => (
+              <div 
+                key={index}
+                className="bg-white rounded-3xl p-6 border-2 border-green-200 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105 group text-center relative overflow-hidden"
+              >
+                <div className="absolute top-0 right-0 w-20 h-20 bg-green-50 rounded-full -translate-y-8 translate-x-8 opacity-50"></div>
+                
+                <div className="relative mx-auto mb-6">
+                  <div className="w-32 h-32 mx-auto bg-gradient-to-br from-green-500 to-green-700 rounded-full p-2 shadow-2xl transform group-hover:scale-110 transition-all duration-500">
+                    <div className="w-full h-full rounded-full overflow-hidden border-4 border-white shadow-inner">
+                      <img 
+                        src={member.image} 
+                        alt={member.name}
+                        className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-all duration-500"
+                        style={{ objectPosition: 'center 25%' }}
+                      />
+                    </div>
                   </div>
+                  <div className="absolute -top-1 -right-1 w-6 h-6 bg-green-400 rounded-full animate-pulse"></div>
+                  <div className="absolute -bottom-1 -left-1 w-4 h-4 bg-green-300 rounded-full animate-pulse" style={{animationDelay: '0.5s'}}></div>
                 </div>
-                {/* Decorative Elements */}
-                <div className="absolute -top-2 -right-2 w-8 h-8 bg-green-400 rounded-full animate-pulse"></div>
-                <div className="absolute -bottom-2 -left-2 w-6 h-6 bg-green-300 rounded-full animate-pulse" style={{animationDelay: '0.5s'}}></div>
+                
+                <h4 className="text-gray-900 font-black text-xl mb-2 relative z-10">{member.name}</h4>
+                <div className="text-green-600 font-bold text-lg mb-2 relative z-10">{member.role}</div>
+                <div className="flex justify-center space-x-2 mt-4 relative z-10">
+                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" style={{animationDelay: '0.2s'}}></div>
+                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" style={{animationDelay: '0.4s'}}></div>
+                </div>
               </div>
-              
-              <h4 className="text-gray-900 font-black text-3xl mb-4 relative z-10">{teamMembers[0].name}</h4>
-              <div className="text-green-600 font-bold text-xl mb-4 relative z-10">{teamMembers[0].role}</div>
-              <div className="text-gray-700 text-lg font-medium mb-6 relative z-10">{teamMembers[0].expertise}</div>
-              <div className="flex justify-center space-x-4 mt-8 relative z-10">
-                <div className="w-4 h-4 bg-green-500 rounded-full animate-pulse"></div>
-                <div className="w-4 h-4 bg-green-500 rounded-full animate-pulse" style={{animationDelay: '0.2s'}}></div>
-                <div className="w-4 h-4 bg-green-500 rounded-full animate-pulse" style={{animationDelay: '0.4s'}}></div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
+        */}
 
         {/* Our Values */}
         <div className="bg-white rounded-3xl p-12 border-2 border-green-200 shadow-2xl mb-20">
@@ -289,11 +367,11 @@ const AboutVegiffy = () => {
         <div className="text-center">
           <div className="bg-gradient-to-br from-green-50 to-white rounded-3xl p-12 border-2 border-green-200 shadow-2xl">
             <h3 className="text-4xl font-black text-gray-900 mb-6">
-              Join the VEGIFFYY Family
+              Join the VEGIFFY Family
             </h3>
             <p className="text-xl text-gray-700 mb-10 max-w-2xl mx-auto font-medium">
               Whether you want to order food, become a vendor, or join as delivery partner - 
-              there's a place for everyone in the VEGIFFYY community.
+              there's a place for everyone in the VEGIFFY community.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <button className="bg-gradient-to-r from-green-600 to-green-800 hover:from-green-700 hover:to-green-900 text-white font-black py-5 px-12 rounded-2xl transition-all duration-300 flex items-center shadow-2xl hover:shadow-3xl transform hover:scale-105">

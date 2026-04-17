@@ -8,6 +8,9 @@ import ContactUs from "./ContactUs";
 import DownloadApp from "./DownloadApp";
 import Footer from "./Footer";
 import BecomePartner from "./BecomePartner";
+import FoundersMessage from "./FoundersMessage";
+import WhatMakesDifferent from "./WhatMakesDifferent";
+import VegiffyyFAQs from "./VegiffyyFAQs";
 
 const HomePage = () => {
   return (
@@ -22,14 +25,11 @@ const HomePage = () => {
         <section id="home">
           <AIHomepage />
         </section>
-        
-        <section id="features">
-          <KeyFeatures />
+
+           <section id="features">
+          <WhatMakesDifferent />
         </section>
         
-        <section id="why-choose">
-          <WhyChooseAlludeAI />
-        </section>
         
         <section id="about">
           <AboutAlludeAI />
@@ -43,8 +43,13 @@ const HomePage = () => {
           <BecomePartner />
         </section>
         
+
+           <section id="becomepartnet">
+          <FoundersMessage />
+        </section>
+
         <section id="contact">
-          <ContactUs />
+          <VegiffyyFAQs />
         </section>
         
         <Footer />

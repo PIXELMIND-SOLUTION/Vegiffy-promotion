@@ -22,7 +22,7 @@ const WhyChooseVegiffy = () => {
     },
     {
       icon: '🚚',
-      title: 'Vegiffyy Express',
+      title: 'VEGIFFY Express',
       description: 'Quick and reliable food delivery by our dedicated partners.',
       color: 'bg-gradient-to-br from-green-700 to-green-800',
       features: ['30 Min Delivery', 'Live Tracking', 'Reliable Service'],
@@ -42,7 +42,7 @@ const WhyChooseVegiffy = () => {
     {
       name: "Rahul Sharma",
       role: "Regular Customer",
-      text: "VEGIFFYY has amazing food quality and fast delivery. Love the pure vegetarian assurance!",
+      text: "VEGIFFY has amazing food quality and fast delivery. Love the pure vegetarian assurance!",
       avatar: "😊",
       rating: 5
     },
@@ -83,12 +83,12 @@ const WhyChooseVegiffy = () => {
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-gray-900 mb-8">
             Why Choose{' '}
             <span className="bg-gradient-to-r from-green-600 to-green-800 bg-clip-text text-transparent">
-              VEGIFFYY?
+              VEGIFFY?
             </span>
           </h2>
           
           <p className="text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed font-medium">
-            Join thousands of happy customers, vendors, and delivery partners who trust VEGIFFYY 
+            Join thousands of happy customers, vendors, and delivery partners who trust VEGIFFY 
             for the best vegetarian food experience.
           </p>
         </div>
@@ -155,11 +155,11 @@ const WhyChooseVegiffy = () => {
             <h3 className="text-4xl font-black text-gray-900 mb-6">
               The{' '}
               <span className="bg-gradient-to-r from-green-600 to-green-800 bg-clip-text text-transparent">
-                VEGIFFYY Advantage
+                VEGIFFY Advantage
               </span>
             </h3>
             <p className="text-xl text-gray-700 font-medium">
-              See how VEGIFFYY benefits everyone in the food ecosystem
+              See how VEGIFFY benefits everyone in the food ecosystem
             </p>
           </div>
 
@@ -195,7 +195,7 @@ const WhyChooseVegiffy = () => {
                 <div className="text-2xl font-black text-gray-900 mb-6">{item.metric}</div>
                 <div className="space-y-4">
                   <div className="bg-gradient-to-r from-green-600 to-green-800 p-5 rounded-2xl transform group-hover:scale-105 transition-all duration-300">
-                    <div className="text-white font-bold text-lg">VEGIFFYY</div>
+                    <div className="text-white font-bold text-lg">VEGIFFY</div>
                     <div className="text-white text-2xl font-black">{item.vegiffy}</div>
                   </div>
                   <div className="bg-gray-100 p-5 rounded-2xl transform group-hover:scale-105 transition-all duration-300">
@@ -246,10 +246,10 @@ const WhyChooseVegiffy = () => {
         <div className="text-center">
           <div className="bg-gradient-to-br from-green-50 to-white rounded-3xl p-12 border-2 border-green-200 shadow-2xl mb-4">
             <h3 className="text-4xl font-black text-gray-900 mb-6">
-              Ready to Join VEGIFFYY?
+              Ready to Join VEGIFFY?
             </h3>
             <p className="text-xl text-gray-700 mb-10 max-w-2xl mx-auto font-medium">
-              Whether you're a customer, vendor, or delivery partner - VEGIFFYY has something for everyone.
+              Whether you're a customer, vendor, or delivery partner - VEGIFFY has something for everyone.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <button className="bg-gradient-to-r from-green-600 to-green-800 hover:from-green-700 hover:to-green-900 text-white font-black py-5 px-12 rounded-2xl transition-all duration-300 flex items-center shadow-2xl hover:shadow-3xl transform hover:scale-105">

@@ -5,6 +5,11 @@ const DownloadApp = () => {
   const [currentFeature, setCurrentFeature] = useState(0);
   const [isPhoneHovered, setIsPhoneHovered] = useState(false);
 
+  // Google Play Store link
+  const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.veggify.veegify';
+  // App Store link (placeholder - update with actual iOS link when available)
+  const APP_STORE_URL = 'https://apps.apple.com/'; // Add your iOS link here
+
   const features = [
     {
       icon: '🥗',
@@ -47,6 +52,16 @@ const DownloadApp = () => {
     return () => clearInterval(featureInterval);
   }, []);
 
+  // Function to handle App Store button click
+  const handleAppStoreClick = () => {
+    window.open(APP_STORE_URL, '_blank');
+  };
+
+  // Function to handle Google Play button click
+  const handleGooglePlayClick = () => {
+    window.open(PLAY_STORE_URL, '_blank');
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-white to-green-50 py-20 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -60,7 +75,7 @@ const DownloadApp = () => {
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-gray-900 mb-8">
             Download{' '}
             <span className="bg-gradient-to-r from-green-600 to-green-800 bg-clip-text text-transparent">
-              VEGIFFYY App
+              VEGIFFY App
             </span>
           </h2>
           
@@ -123,7 +138,10 @@ const DownloadApp = () => {
             <div className="space-y-6">
               <div className="flex flex-col sm:flex-row gap-6">
                 {/* App Store Button */}
-                <button className="flex items-center justify-center space-x-4 bg-black hover:bg-gray-800 text-white py-5 px-8 rounded-2xl transition-all duration-300 hover:scale-105 group border-2 border-gray-700 shadow-2xl hover:shadow-3xl">
+                <button 
+                  onClick={handleAppStoreClick}
+                  className="flex items-center justify-center space-x-4 bg-black hover:bg-gray-800 text-white py-5 px-8 rounded-2xl transition-all duration-300 hover:scale-105 group border-2 border-gray-700 shadow-2xl hover:shadow-3xl"
+                >
                   <div className="text-4xl">📱</div>
                   <div className="text-left">
                     <div className="text-sm text-gray-400">Download on the</div>
@@ -132,7 +150,10 @@ const DownloadApp = () => {
                 </button>
 
                 {/* Google Play Button */}
-                <button className="flex items-center justify-center space-x-4 bg-gradient-to-r from-green-600 to-green-800 hover:from-green-700 hover:to-green-900 text-white py-5 px-8 rounded-2xl transition-all duration-300 hover:scale-105 group border-2 border-green-500 shadow-2xl hover:shadow-3xl">
+                <button 
+                  onClick={handleGooglePlayClick}
+                  className="flex items-center justify-center space-x-4 bg-gradient-to-r from-green-600 to-green-800 hover:from-green-700 hover:to-green-900 text-white py-5 px-8 rounded-2xl transition-all duration-300 hover:scale-105 group border-2 border-green-500 shadow-2xl hover:shadow-3xl"
+                >
                   <div className="text-4xl">🤖</div>
                   <div className="text-left">
                     <div className="text-sm text-green-200">Get it on</div>
@@ -145,13 +166,22 @@ const DownloadApp = () => {
               <div className="bg-white rounded-2xl p-8 border-2 border-green-200 shadow-2xl text-center">
                 <h4 className="text-gray-900 font-black text-xl mb-4">Scan to Download</h4>
                 <div className="bg-gradient-to-br from-green-50 to-white p-6 rounded-2xl inline-block border-2 border-green-200">
-                  <div className="w-40 h-40 bg-green-500 rounded-2xl flex items-center justify-center text-white text-6xl shadow-2xl">
+                  <div 
+                    className="w-40 h-40 bg-gradient-to-br from-green-500 to-green-700 rounded-2xl flex items-center justify-center text-white text-6xl shadow-2xl cursor-pointer hover:scale-105 transition-transform duration-300"
+                    onClick={handleGooglePlayClick}
+                  >
                     📲
                   </div>
                 </div>
                 <p className="text-gray-700 font-medium text-lg mt-4">
-                  Point your camera at the QR code to download
+                  Scan QR code or click above to download from Play Store
                 </p>
+                <button 
+                  onClick={handleGooglePlayClick}
+                  className="mt-4 bg-gradient-to-r from-green-600 to-green-800 hover:from-green-700 hover:to-green-900 text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg"
+                >
+                  Direct Download Link
+                </button>
               </div>
             </div>
           </div>
@@ -170,21 +200,41 @@ const DownloadApp = () => {
               <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-40 h-6 bg-gray-700 rounded-b-2xl z-20"></div>
               
               {/* Phone Screen */}
-              <div className="absolute inset-4 bg-white rounded-3xl overflow-hidden border-2 border-gray-200">
+              <div className="absolute inset-4 bg-white rounded-3xl overflow-hidden border-2 border-gray-200 cursor-pointer"
+                   onClick={handleGooglePlayClick}>
                 {/* App Interface with Home Image */}
-                <div className="h-full w-full">
+                <div className="h-full w-full relative">
                   <img 
                     src={homeImage} 
-                    alt="VEGIFFYY App Home Screen" 
+                    alt="VEGIFFY App Home Screen" 
                     className="w-full h-full object-cover rounded-2xl"
                   />
                   {/* Overlay for better visibility */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl"></div>
+                  {/* Click to Download Overlay */}
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 hover:opacity-100 transition-opacity duration-300 rounded-2xl">
+                    <div className="text-center p-6 bg-white rounded-2xl shadow-2xl transform hover:scale-105 transition-transform duration-300">
+                      <div className="text-4xl mb-2">⬇️</div>
+                      <div className="text-green-800 font-bold text-lg">Click to Download</div>
+                    </div>
+                  </div>
                 </div>
               </div>
 
               {/* Home Indicator */}
               <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gray-400 rounded-full"></div>
+            </div>
+
+            {/* Download Prompt */}
+            <div className="text-center mt-6">
+              <button 
+                onClick={handleGooglePlayClick}
+                className="bg-gradient-to-r from-green-600 to-green-800 hover:from-green-700 hover:to-green-900 text-white font-bold py-4 px-8 rounded-2xl transition-all duration-300 hover:scale-105 shadow-2xl inline-flex items-center space-x-3"
+              >
+                <span className="text-2xl">📱</span>
+                <span>Tap to Download VEGIFFY App</span>
+                <span className="text-xl animate-bounce">👇</span>
+              </button>
             </div>
 
             {/* Floating Elements */}
@@ -196,7 +246,7 @@ const DownloadApp = () => {
         {/* Platform Badges */}
         <div className="mt-20 text-center">
           <div className="bg-white rounded-3xl p-12 border-2 border-green-200 shadow-2xl">
-            <h3 className="text-4xl font-black text-gray-900 mb-10">Why Choose VEGIFFYY App?</h3>
+            <h3 className="text-4xl font-black text-gray-900 mb-10">Why Choose VEGIFFY App?</h3>
             <div className="flex flex-wrap justify-center gap-6">
               {[
                 { icon: '🥗', text: 'Pure Vegetarian' },
@@ -214,6 +264,21 @@ const DownloadApp = () => {
                   <span className="text-gray-900 font-black text-lg">{badge.text}</span>
                 </div>
               ))}
+            </div>
+            
+            {/* Final CTA Button */}
+            <div className="mt-12">
+              <button 
+                onClick={handleGooglePlayClick}
+                className="bg-gradient-to-r from-green-600 to-green-800 hover:from-green-700 hover:to-green-900 text-white font-bold text-xl py-5 px-12 rounded-2xl transition-all duration-300 hover:scale-105 shadow-2xl hover:shadow-3xl inline-flex items-center space-x-4"
+              >
+                <span className="text-3xl">🚀</span>
+                <span>Download VEGIFFY App Now!</span>
+                <span className="text-2xl animate-pulse">👉</span>
+              </button>
+              <p className="text-gray-700 font-medium text-lg mt-4">
+                Join 10,000+ happy users enjoying vegetarian food at their fingertips
+              </p>
             </div>
           </div>
         </div>

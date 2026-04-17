@@ -13,12 +13,20 @@ const Navbar = () => {
     { name: 'Contact Us', href: '#contact' },
   ];
 
+  // Google Play Store link
+  const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.veggify.veegify';
+
   const scrollToSection = (href) => {
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
     setIsMenuOpen(false);
+  };
+
+  // Function to open Play Store link
+  const handleInstallClick = () => {
+    window.open(PLAY_STORE_URL, '_blank');
   };
 
   return (
@@ -36,7 +44,7 @@ const Navbar = () => {
                 />
               </div>
               <span className="text-2xl font-bold text-white">
-                VEGIFFYY
+                VEGIFFY
               </span>
             </div>
           </div>
@@ -75,7 +83,7 @@ const Navbar = () => {
             </div>
 
             <button 
-              onClick={() => scrollToSection('#join')}
+              onClick={handleInstallClick}
               className="hidden sm:flex items-center bg-white text-green-600 hover:bg-yellow-50 font-bold py-3 px-8 rounded-full transition-all duration-300 shadow-lg hover:scale-105"
             >
               <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -134,7 +142,7 @@ const Navbar = () => {
 
               <div className="pt-3">
                 <button 
-                  onClick={() => scrollToSection('#join')}
+                  onClick={handleInstallClick}
                   className="w-full flex justify-center items-center bg-white text-green-600 hover:bg-yellow-50 font-bold py-3 px-4 rounded-full transition-all duration-300"
                 >
                   <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">

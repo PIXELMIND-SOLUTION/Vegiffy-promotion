@@ -10,14 +10,14 @@ const ContactUs = () => {
     message: ''
   });
 
-  const fullTitle = "Get in Touch with VEGIFFYY";
+  const fullTitle = "Get in Touch with VEGIFFY";
   
   const contactMethods = [
     {
       icon: '📧',
       title: 'Email Us',
       description: 'Send us an email anytime for recipe suggestions or support',
-      details: 'support@vegiffyy.com',
+      details: 'info@vegiffy.in',
       gradient: 'from-green-400 to-emerald-500'
     },
     {
@@ -49,7 +49,7 @@ const ContactUs = () => {
       answer: 'Most orders are delivered within 30 minutes in metro cities!'
     },
     {
-      question: 'Is VEGIFFYY 100% vegetarian?',
+      question: 'Is VEGIFFY 100% vegetarian?',
       answer: 'Yes! We are completely pure vegetarian with verified vendors only.'
     },
     {
@@ -57,7 +57,7 @@ const ContactUs = () => {
       answer: 'Absolutely! We specialize in bulk orders with special discounts.'
     },
     {
-      question: 'Can I become a vendor partner with VEGIFFYY?',
+      question: 'Can I become a vendor partner with VEGIFFY?',
       answer: 'Yes! Join our growing network of vegetarian food vendors.'
     }
   ];
@@ -343,7 +343,7 @@ const ContactUs = () => {
           <div className="text-center p-6 bg-white rounded-2xl border border-green-200 hover:shadow-lg transition-all duration-300">
             <div className="text-3xl mb-3">🏪</div>
             <h4 className="font-bold text-gray-900 mb-2">Vendor Partnership</h4>
-            <p className="text-gray-600 text-sm">Join 500+ restaurants growing with VEGIFFYY</p>
+            <p className="text-gray-600 text-sm">Join 500+ restaurants growing with VEGIFFY</p>
           </div>
           
           <div className="text-center p-6 bg-white rounded-2xl border border-green-200 hover:shadow-lg transition-all duration-300">

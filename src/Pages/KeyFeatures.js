@@ -22,7 +22,7 @@ const KeyFeatures = () => {
     },
     {
       icon: '🚴',
-      title: 'Vegiffyy Express',
+      title: 'VEGIFFY Express',
       description: 'Quick and reliable food delivery by our dedicated partners',
       color: 'bg-gradient-to-br from-green-700 to-green-800',
       stats: '30 Min Delivery',
@@ -67,7 +67,7 @@ const KeyFeatures = () => {
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-gray-900 mb-8">
             Why Choose{' '}
             <span className="bg-gradient-to-r from-green-600 to-green-800 bg-clip-text text-transparent">
-              VEGIFFYY?
+              VEGIFFY?
             </span>
           </h2>
           
@@ -130,7 +130,7 @@ const KeyFeatures = () => {
               </h3>
               
               <p className="text-xl text-gray-700 leading-relaxed font-medium">
-                VEGIFFYY brings together customers, vendors, delivery partners, and ambassadors 
+                VEGIFFY brings together customers, vendors, delivery partners, and ambassadors 
                 to create India's most trusted vegetarian food platform.
               </p>
 
@@ -157,7 +157,7 @@ const KeyFeatures = () => {
 
               <button className="bg-gradient-to-r from-green-600 to-green-800 hover:from-green-700 hover:to-green-900 text-white font-bold py-4 px-10 rounded-2xl transition-all duration-300 flex items-center shadow-2xl hover:shadow-3xl transform hover:scale-105 w-fit">
                 <span className="mr-3 text-xl">🚀</span>
-                Join VEGIFFYY Now
+                Join VEGIFFY Now
                 <span className="ml-3 text-xl animate-pulse">→</span>
               </button>
             </div>
