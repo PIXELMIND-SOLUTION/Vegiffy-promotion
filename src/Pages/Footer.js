@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import vegiffyLogo from '../images/veggifylogo.jpeg'; // Adjust path if needed
-import jeipexLogo from '../images/JEIPLX.png'; // Import JEIPEX logo
+import vegiffyLogo from '../images/veggifylogo.png'; // Adjust path if needed
 
 const Footer = () => {
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
@@ -13,46 +12,39 @@ const Footer = () => {
     {
       title: 'Order Food',
       links: [
-        { name: 'Browse Restaurants', href: '#', icon: '🍽️' },
-        { name: 'Weekly Specials', href: '#', icon: '⭐' },
-        { name: 'Group Orders', href: '#', icon: '👥' },
-        { name: 'Track Order', href: '#', icon: '🚚' }
+        { name: 'Browse Restaurants', icon: '🍽️', clickable: false },
+        { name: 'Weekly Specials', icon: '⭐', clickable: false },
+        { name: 'Group Orders', icon: '👥', clickable: false },
+        { name: 'Track Order', icon: '🚚', clickable: false }
       ]
     },
     {
       title: 'For Vendors',
       links: [
-        { name: 'Join as Restaurant', href: '#' },
-        { name: 'Vendor Dashboard', href: '#' },
-        { name: 'Business Tools', href: '#' },
-        { name: 'Partner Support', href: '#' }
+        { name: 'Join as Restaurant', href: 'https://vendor.vegiffy.in/', icon: null, clickable: true },
+        { name: 'Vendor Dashboard', clickable: false },
+        { name: 'Business Tools', clickable: false },
+        { name: 'Partner Support', clickable: false }
       ]
     },
     {
       title: 'Join Our Team',
       links: [
-        { name: 'VEGIFFY Express', href: '#' },
-        { name: 'Become Ambassador', href: '#' },
-        { name: 'Careers', href: '#' },
-        { name: 'Internships', href: '#' }
+        { name: 'Vegiffyy Express', clickable: false },
+        { name: 'Become Ambassador', href: 'https://vegiffypanel.vegiffy.in/vegiffy-ambassador', clickable: true },
+        { name: 'Careers', clickable: false },
+        { name: 'Internships', clickable: false }
       ]
     },
     {
       title: 'Support',
       links: [
-        { name: 'Help Center', href: '#' },
-        { name: 'Contact Us', href: '#' },
-        { name: 'FAQ', href: '#' },
-        { name: 'Feedback', href: '#' }
+        { name: 'Help Center', clickable: false },
+        { name: 'Contact Us', clickable: false },
+        { name: 'FAQ', clickable: false },
+        { name: 'Feedback', clickable: false }
       ]
     }
-  ];
-
-  const socialLinks = [
-    { name: 'Instagram', href: '#', icon: '📷' },
-    { name: 'Facebook', href: '#', icon: '👥' },
-    { name: 'Twitter', href: '#', icon: '🐦' },
-    { name: 'YouTube', href: '#', icon: '📺' }
   ];
 
   const cities = [
@@ -81,7 +73,8 @@ const Footer = () => {
             {/* Brand Section */}
             <div className="lg:col-span-2">
               <div className="flex items-center space-x-4 mb-8">
-                <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-2xl transform hover:rotate-12 transition-transform duration-500 overflow-hidden">
+                {/* Circular logo container */}
+                <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-2xl transform hover:rotate-12 transition-transform duration-500 overflow-hidden">
                   <img 
                     src={vegiffyLogo} 
                     alt="Vegiffy Logo" 
@@ -89,7 +82,7 @@ const Footer = () => {
                   />
                 </div>
                 <div>
-                  <h3 className="text-4xl font-bold text-white drop-shadow-lg">VEGIFFY</h3>
+                  <h3 className="text-4xl font-bold text-white drop-shadow-lg">VEGIFFYY</h3>
                   <p className="text-green-100 text-lg font-medium">100% Pure Veg Food Platform</p>
                 </div>
               </div>
@@ -99,19 +92,16 @@ const Footer = () => {
                 join as vendor or delivery partner, and be part of our growing community.
               </p>
 
-            
-              
-              {/* Social Links */}
-              <div className="flex space-x-4">
-                {socialLinks.map((social) => (
-                  <a
-                    key={social.name}
-                    href={social.href}
-                    className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center text-white hover:bg-white/30 hover:scale-110 transform transition-all duration-300 shadow-lg"
-                  >
-                    <span className="text-xl">{social.icon}</span>
-                  </a>
-                ))}
+              {/* Cities Section */}
+              <div className="mb-6">
+                <h4 className="text-white font-semibold mb-3">Available in Cities:</h4>
+                <div className="flex flex-wrap gap-2">
+                  {cities.slice(0, 6).map(city => (
+                    <span key={city} className="px-3 py-1 bg-white/20 rounded-full text-green-100 text-sm">
+                      {city}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
 
@@ -124,19 +114,30 @@ const Footer = () => {
                 <ul className="space-y-3">
                   {section.links.map((link) => (
                     <li key={link.name}>
-                      <a
-                        href={link.href}
-                        className="flex items-center space-x-2 text-green-100 hover:text-white transition-all duration-300 group text-sm font-medium"
-                      >
-                        {link.icon && (
-                          <span className="text-lg transform group-hover:scale-110 transition-transform duration-300">
-                            {link.icon}
+                      {link.clickable ? (
+                        <a
+                          href={link.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center space-x-2 text-green-100 hover:text-white transition-all duration-300 group text-sm font-medium"
+                        >
+                          {link.icon && (
+                            <span className="text-lg transform group-hover:scale-110 transition-transform duration-300">
+                              {link.icon}
+                            </span>
+                          )}
+                          <span className="group-hover:translate-x-1 transition-transform duration-300">
+                            {link.name}
                           </span>
-                        )}
-                        <span className="group-hover:translate-x-1 transition-transform duration-300">
-                          {link.name}
+                        </a>
+                      ) : (
+                        <span className="flex items-center space-x-2 text-green-100 text-sm font-medium cursor-default">
+                          {link.icon && (
+                            <span className="text-lg">{link.icon}</span>
+                          )}
+                          <span>{link.name}</span>
                         </span>
-                      </a>
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -152,41 +153,15 @@ const Footer = () => {
               
               {/* Copyright */}
               <div className="text-white text-sm font-medium">
-                © {currentYear} VEGIFFY - Pure Veg Food Platform. All rights reserved.
+                © {currentYear} VEGIFFYY - Pure Veg Food Platform. All rights reserved.
               </div>
 
-              {/* Powered By Section with JEIPEX Logo */}
-              <div className="flex items-center space-x-3">
-                <div className="text-green-100 text-sm font-medium text-center">
-                  <div>Powered by Nemishhrree</div>
-                  <div>Operated by</div>
-                </div>
-                <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center shadow-lg overflow-hidden">
-                  <img 
-                    src={jeipexLogo} 
-                    alt="JEIPEX Logo" 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="text-green-100 text-sm font-bold">
-                  JEIPLX
-                </div>
-              </div>
-
-              {/* Legal Links */}
+              {/* Legal Links - Non-clickable */}
               <div className="flex space-x-6">
-                <a href="#" className="text-green-100 hover:text-white text-sm transition-all duration-300">
-                  Privacy
-                </a>
-                <a href="#" className="text-green-100 hover:text-white text-sm transition-all duration-300">
-                  Terms
-                </a>
-                <a href="#" className="text-green-100 hover:text-white text-sm transition-all duration-300">
-                  Cookies
-                </a>
-                <a href="#" className="text-green-100 hover:text-white text-sm transition-all duration-300">
-                  Sitemap
-                </a>
+                <span className="text-green-100 text-sm cursor-default">Privacy</span>
+                <span className="text-green-100 text-sm cursor-default">Terms</span>
+                <span className="text-green-100 text-sm cursor-default">Cookies</span>
+                <span className="text-green-100 text-sm cursor-default">Sitemap</span>
               </div>
             </div>
           </div>
