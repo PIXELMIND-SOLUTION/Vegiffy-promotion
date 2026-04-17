@@ -48,8 +48,7 @@ const Footer = () => {
   ];
 
   const cities = [
-    'Delhi', 'Mumbai', 'Bangalore', 'Hyderabad', 'Chennai', 
-    'Kolkata', 'Pune', 'Ahmedabad', 'Jaipur', 'Lucknow'
+    'Hyderabad',
   ];
 
   return (

@@ -105,7 +105,7 @@ const AboutVegiffy = () => {
         <div className="text-center mb-20">
           <div className="inline-flex items-center space-x-3 bg-white rounded-full px-8 py-4 border-2 border-green-200 shadow-2xl mb-8 animate-pulse">
             <span className="w-3 h-3 bg-green-500 rounded-full animate-bounce"></span>
-            <span className="text-green-800 font-bold text-lg">Operated by Jainity Eats India Private Limited</span>
+            <span className="text-green-800 font-bold text-lg">Operated by Earthly Eats India Private Limited</span>
           </div>
 
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-gray-900 mb-8">
@@ -122,7 +122,7 @@ const AboutVegiffy = () => {
             </p>
             
             <p>
-              Operated by <span className="text-green-600 font-bold">Jainity Eats India Private Limited</span>, VEGIFFY connects customers 
+              Operated by <span className="text-green-600 font-bold">Earthly Eats India Private Limited</span>, VEGIFFY connects customers 
               with trusted pure vegetarian restaurants, hotels, sweet shops, juice parlours, and cloud kitchens, 
               ensuring every meal ordered through our platform follows strict vegetarian standards.
             </p>
