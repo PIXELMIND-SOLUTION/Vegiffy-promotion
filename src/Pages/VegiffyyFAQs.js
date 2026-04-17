@@ -34,7 +34,7 @@ const VEGIFFYFAQs = () => {
       color: 'from-green-500 to-green-600',
       items: [
         {
-          id: 'what-is-vegiffyy',
+          id: 'what-is-vegiffy',
           question: 'What is VEGIFFY?',
           answer: 'VEGIFFY is a 100% Pure Vegetarian food delivery app that connects customers with verified veg restaurants, hotels, sweet shops, juice parlours, and cloud kitchens near them.'
         },

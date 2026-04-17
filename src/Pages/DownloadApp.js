@@ -66,7 +66,7 @@ const DownloadApp = () => {
           <h2 className="text-3xl md:text-5xl lg:text-7xl font-black text-gray-900 mb-4 md:mb-8">
             Download{' '}
             <span className="bg-gradient-to-r from-green-600 to-green-800 bg-clip-text text-transparent">
-              VEGIFFYY App
+              VEGIFFY App
             </span>
           </h2>
           
@@ -169,7 +169,7 @@ const DownloadApp = () => {
               <div className="absolute top-2 left-2 right-2 bottom-2 bg-white rounded-[2rem] overflow-hidden">
                 <img 
                   src="/vegiffyhome.jpg" 
-                  alt="VEGIFFYY App Home Screen" 
+                  alt="VEGIFFY App Home Screen" 
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"></div>
@@ -185,7 +185,7 @@ const DownloadApp = () => {
         {/* Platform Badges */}
         <div className="mt-16 md:mt-20 text-center">
           <div className="bg-white rounded-2xl md:rounded-3xl p-6 md:p-12 border-2 border-green-200 shadow-2xl">
-            <h3 className="text-2xl md:text-4xl font-black text-gray-900 mb-6 md:mb-10">Why Choose VEGIFFYY App?</h3>
+            <h3 className="text-2xl md:text-4xl font-black text-gray-900 mb-6 md:mb-10">Why Choose VEGIFFY App?</h3>
             <div className="flex flex-wrap justify-center gap-3 md:gap-6">
               {[
                 { icon: '🥗', text: 'Pure Vegetarian' },

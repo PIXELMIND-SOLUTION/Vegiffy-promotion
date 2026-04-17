@@ -30,7 +30,7 @@ const Footer = () => {
     {
       title: 'Join Our Team',
       links: [
-        { name: 'Vegiffyy Express', clickable: false },
+        { name: 'Vegiffy Express', clickable: false },
         { name: 'Become Ambassador', href: 'https://vegiffypanel.vegiffy.in/vegiffy-ambassador', clickable: true },
         { name: 'Careers', clickable: false },
         { name: 'Internships', clickable: false }
@@ -81,7 +81,7 @@ const Footer = () => {
                   />
                 </div>
                 <div>
-                  <h3 className="text-4xl font-bold text-white drop-shadow-lg">VEGIFFYY</h3>
+                  <h3 className="text-4xl font-bold text-white drop-shadow-lg">VEGIFFY</h3>
                   <p className="text-green-100 text-lg font-medium">100% Pure Veg Food Platform</p>
                 </div>
               </div>
@@ -152,7 +152,7 @@ const Footer = () => {
               
               {/* Copyright */}
               <div className="text-white text-sm font-medium">
-                © {currentYear} VEGIFFYY - Pure Veg Food Platform. All rights reserved.
+                © {currentYear} VEGIFFY - Pure Veg Food Platform. All rights reserved.
               </div>
 
               {/* Legal Links - Non-clickable */}
