@@ -31,7 +31,7 @@ const Footer = () => {
       title: 'Join Our Team',
       links: [
         { name: 'Vegiffy Express', clickable: false },
-        { name: 'Become Ambassador', href: 'https://vegiffypanel.vegiffy.in/vegiffy-ambassador', clickable: true },
+        { name: 'Become Ambassador', href: 'https://panel.vegiffy.in/vegiffy-ambassador', clickable: true },
         { name: 'Careers', clickable: false },
         { name: 'Internships', clickable: false }
       ]

@@ -23,7 +23,7 @@ const BecomePartner = () => {
   // Registration URLs
   const REGISTRATION_URLS = {
     vendor: 'https://vendor.vegiffy.in/register',
-    ambassador: 'https://vegiffypanel.vegiffy.in/vegiffy-ambassador'
+    ambassador: 'https://panel.vegiffy.in/vegiffy-ambassador'
   };
 
   useEffect(() => {
