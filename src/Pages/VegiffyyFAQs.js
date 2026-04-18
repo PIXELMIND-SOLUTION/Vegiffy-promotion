@@ -123,7 +123,7 @@ const VEGIFFYFAQs = () => {
           answer: 'You can reach us through multiple channels:',
           points: [
             'In-app support',
-            'Email: info@vegiffy.in',
+            'Email: info@vegiffy.com',
             'Phone: 9391973675'
           ]
         },
@@ -463,7 +463,7 @@ const VEGIFFYFAQs = () => {
                   <div className="bg-green-50 rounded-2xl p-6 border-2 border-green-200">
                     <div className="text-3xl mb-4">📧</div>
                     <div className="font-bold text-gray-900 mb-2">Email Support</div>
-                    <div className="text-green-600 font-medium">info@vegiffy.in</div>
+                    <div className="text-green-600 font-medium">info@vegiffy.com</div>
                   </div>
                   <div className="bg-green-50 rounded-2xl p-6 border-2 border-green-200">
                     <div className="text-3xl mb-4">📞</div>

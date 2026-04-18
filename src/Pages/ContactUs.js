@@ -17,7 +17,7 @@ const ContactUs = () => {
       icon: '📧',
       title: 'Email Us',
       description: 'Send us an email anytime for recipe suggestions or support',
-      details: 'info@vegiffy.in',
+      details: 'info@vegiffy.com',
       gradient: 'from-green-400 to-emerald-500'
     },
     {
