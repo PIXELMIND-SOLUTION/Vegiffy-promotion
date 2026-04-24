@@ -3,7 +3,7 @@ import signatureImage from '../images/signature.png';
 import founderImg from '../images/founder.jpeg';
 import cofounderImg from '../images/cofounder.jpeg';
 import cooImg from '../images/coo.jpeg';
-import cmoImg from '../images/cmo.jpeg';
+// cmoImg removed as per request (4th member removed)
 
 const FoundersMessage = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -42,6 +42,7 @@ const FoundersMessage = () => {
     return () => clearInterval(slideInterval);
   }, []);
 
+  // Leadership Team - 4th member removed as requested
   const leadershipTeam = [
     {
       id: 1,
@@ -62,12 +63,7 @@ const FoundersMessage = () => {
       position: 'Director & COO',
       image: cooImg,
     },
-    {
-      id: 4,
-      name: 'Nikhil Surana',
-      position: 'Director & CMO',
-      image: cmoImg,
-    }
+    // Nikhil Surana (4th member) removed as per instruction
   ];
 
   return (
@@ -168,7 +164,7 @@ const FoundersMessage = () => {
           </div>
         </div>
 
-        {/* Leadership Team - Moved to appear right after the main message */}
+        {/* Leadership Team - Now with 3 members (4th removed) */}
         <div className="mb-20">
           <div className="text-center mb-12">
             <div className="inline-flex items-center space-x-2 bg-white rounded-full px-6 py-2 border-2 border-green-200 shadow-md mb-6">
@@ -186,7 +182,8 @@ const FoundersMessage = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
+          {/* Adjusted grid for 3 members */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 max-w-5xl mx-auto">
             {leadershipTeam.map((member) => (
               <div key={member.id} className="flex flex-col items-center text-center group">
                 <div className="relative mb-5">
@@ -218,7 +215,7 @@ const FoundersMessage = () => {
           </div>
         </div>
 
-        {/* Team Stats - Now appears after Leadership Team */}
+        {/* Team Stats */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
           {[
             { number: '10K+', label: 'Happy Customers', icon: '😊', color: 'bg-gradient-to-br from-green-500 to-green-600' },
@@ -291,7 +288,7 @@ const FoundersMessage = () => {
         </div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         @keyframes float {
           0% { transform: translateY(0px); }
           50% { transform: translateY(-8px); }
