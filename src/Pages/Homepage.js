@@ -11,6 +11,7 @@ import BecomePartner from "./BecomePartner";
 import FoundersMessage from "./FoundersMessage";
 import WhatMakesDifferent from "./WhatMakesDifferent";
 import VegiffyyFAQs from "./VegiffyyFAQs";
+import PatnerSection from "./PatnerSection";
 
 const HomePage = () => {
   return (
@@ -26,32 +27,36 @@ const HomePage = () => {
           <AIHomepage />
         </section>
 
-           <section id="features">
+        <section id="features">
           <WhatMakesDifferent />
         </section>
-        
-        
+
+
         <section id="about">
           <AboutAlludeAI />
         </section>
-        
+
         <section id="download">
           <DownloadApp />
         </section>
 
-          <section id="becomepartnet">
+        <section id="becomepartnet">
           <BecomePartner />
         </section>
-        
 
-           <section id="becomepartnet">
+        <section id="becomepartnet">
+          <PatnerSection/>
+        </section>
+
+
+        <section id="becomepartnet">
           <FoundersMessage />
         </section>
 
         <section id="contact">
           <VegiffyyFAQs />
         </section>
-        
+
         <Footer />
       </div>
     </div>
