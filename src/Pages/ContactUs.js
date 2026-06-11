@@ -24,7 +24,7 @@ const ContactUs = () => {
       icon: '📞',
       title: 'Call Us',
       description: 'Speak directly with our food experts during business hours',
-      details: '+91-6309100101',
+      details: '+91-9550004150',
       gradient: 'from-orange-400 to-amber-500'
     },
     {
@@ -329,7 +329,7 @@ const ContactUs = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
             <div className="text-white font-bold text-lg bg-white/20 px-4 py-2 rounded-xl border border-white/30">
-              🚀 Quick Support: +91-6309100101
+              🚀 Quick Support: +91-9550004150
             </div>
             <button className="bg-white text-green-600 hover:bg-green-50 font-semibold py-2 px-4 rounded-xl transition-all duration-300 hover:scale-105 flex items-center text-sm">
               <span className="mr-2">📞</span>

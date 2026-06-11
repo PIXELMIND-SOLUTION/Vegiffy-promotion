@@ -38,7 +38,7 @@ const BecomePartner = () => {
   };
 
   const handleCallClick = () => {
-    window.location.href = 'tel:6309100101';
+    window.location.href = 'tel:9550004150';
   };
 
   const handleDirectRegistration = (type) => {
