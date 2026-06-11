@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FaMapMarkerAlt } from 'react-icons/fa';
 
 const VEGIFFYFAQs = () => {
   const [activeCategory, setActiveCategory] = useState('general');
@@ -200,22 +201,22 @@ const VEGIFFYFAQs = () => {
   ];
 
   // Filter items based on search term
-  const filteredItems = searchTerm 
-    ? Object.values(faqData).flatMap(category => 
-        category.items.filter(item => 
-          item.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          item.answer.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          (item.points && item.points.some(point => 
-            point.toLowerCase().includes(searchTerm.toLowerCase())
-          ))
-        )
+  const filteredItems = searchTerm
+    ? Object.values(faqData).flatMap(category =>
+      category.items.filter(item =>
+        item.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        item.answer.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        (item.points && item.points.some(point =>
+          point.toLowerCase().includes(searchTerm.toLowerCase())
+        ))
       )
+    )
     : faqData[activeCategory].items;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-white py-12">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center space-x-3 bg-white rounded-full px-8 py-4 border-2 border-green-200 shadow-lg mb-8">
@@ -229,7 +230,7 @@ const VEGIFFYFAQs = () => {
               FAQs
             </span>
           </h1>
-          
+
           <p className="text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed font-medium">
             Everything you need to know about our 100% Pure Vegetarian food delivery platform
           </p>
@@ -254,7 +255,7 @@ const VEGIFFYFAQs = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-          
+
           {/* Sidebar - Categories */}
           <div className="lg:col-span-1">
             <div className="bg-white rounded-3xl p-6 border-2 border-green-200 shadow-lg sticky top-8">
@@ -262,7 +263,7 @@ const VEGIFFYFAQs = () => {
                 <span className="w-2 h-2 bg-green-500 rounded-full mr-3 animate-pulse"></span>
                 Categories
               </h3>
-              
+
               <div className="space-y-3">
                 {categories.map((category) => (
                   <button
@@ -271,21 +272,19 @@ const VEGIFFYFAQs = () => {
                       setActiveCategory(category.id);
                       setSearchTerm('');
                     }}
-                    className={`w-full flex items-center justify-between p-4 rounded-2xl transition-all duration-300 ${
-                      activeCategory === category.id && !searchTerm
-                        ? 'bg-gradient-to-r from-green-500 to-green-600 text-white shadow-lg transform scale-105'
-                        : 'bg-green-50 text-gray-700 hover:bg-green-100 hover:shadow-md'
-                    }`}
+                    className={`w-full flex items-center justify-between p-4 rounded-2xl transition-all duration-300 ${activeCategory === category.id && !searchTerm
+                      ? 'bg-gradient-to-r from-green-500 to-green-600 text-white shadow-lg transform scale-105'
+                      : 'bg-green-50 text-gray-700 hover:bg-green-100 hover:shadow-md'
+                      }`}
                   >
                     <div className="flex items-center space-x-3">
                       <span className="text-xl">{category.icon}</span>
                       <span className="font-semibold">{category.name}</span>
                     </div>
-                    <span className={`px-2 py-1 rounded-full text-sm font-bold ${
-                      activeCategory === category.id && !searchTerm
-                        ? 'bg-white text-green-600'
-                        : 'bg-green-200 text-green-700'
-                    }`}>
+                    <span className={`px-2 py-1 rounded-full text-sm font-bold ${activeCategory === category.id && !searchTerm
+                      ? 'bg-white text-green-600'
+                      : 'bg-green-200 text-green-700'
+                      }`}>
                       {category.count}
                     </span>
                   </button>
@@ -305,7 +304,7 @@ const VEGIFFYFAQs = () => {
                   </div>
                   <div className="flex justify-between text-sm">
                     <span className="text-gray-600">Download App</span>
-                    <button 
+                    <button
                       onClick={handleDownloadAppClick}
                       className="font-bold text-green-600 hover:text-green-700"
                     >
@@ -320,7 +319,7 @@ const VEGIFFYFAQs = () => {
           {/* Main Content */}
           <div className="lg:col-span-3">
             <div className="bg-white rounded-3xl p-8 border-2 border-green-200 shadow-lg">
-              
+
               {/* Category Header */}
               {!searchTerm && (
                 <div className={`bg-gradient-to-r ${faqData[activeCategory].color} rounded-2xl p-6 text-white mb-8`}>
@@ -378,9 +377,8 @@ const VEGIFFYFAQs = () => {
                             <h3 className="text-xl font-black text-gray-900">{item.question}</h3>
                           </div>
                         </div>
-                        <div className={`transform transition-transform duration-300 ${
-                          openItems[item.id] ? 'rotate-180' : ''
-                        }`}>
+                        <div className={`transform transition-transform duration-300 ${openItems[item.id] ? 'rotate-180' : ''
+                          }`}>
                           <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                           </svg>
@@ -391,7 +389,7 @@ const VEGIFFYFAQs = () => {
                     {openItems[item.id] && (
                       <div className="p-6 bg-green-50 border-t-2 border-green-200 animate-slideDown">
                         <p className="text-gray-700 mb-4 text-lg leading-relaxed">{item.answer}</p>
-                        
+
                         {item.points && (
                           <div className="grid grid-cols-1 md:grid-cols-1 gap-3 mb-6">
                             {item.points.map((point, pointIndex) => (
@@ -458,7 +456,7 @@ const VEGIFFYFAQs = () => {
                 <p className="text-gray-600 mb-6 text-lg">
                   Our support team is here to help you with any questions
                 </p>
-                
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                   <div className="bg-green-50 rounded-2xl p-6 border-2 border-green-200">
                     <div className="text-3xl mb-4">📧</div>
@@ -468,7 +466,45 @@ const VEGIFFYFAQs = () => {
                   <div className="bg-green-50 rounded-2xl p-6 border-2 border-green-200">
                     <div className="text-3xl mb-4">📞</div>
                     <div className="font-bold text-gray-900 mb-2">Phone Support</div>
-                    <div className="text-green-600 font-medium">6309100101</div>
+                    <div className="text-green-600 font-medium">9550004150</div>
+                  </div>
+                </div>
+
+                {/* Office Address */}
+                <div className="mb-8">
+                  <div className="relative overflow-hidden bg-gradient-to-r from-green-600 to-emerald-700 rounded-3xl p-6 md:p-8 shadow-xl">
+
+                    {/* Decorative circles */}
+                    <div className="absolute -top-10 -right-10 w-32 h-32 bg-white/10 rounded-full"></div>
+                    <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-white/10 rounded-full"></div>
+
+                    <div className="relative z-10 flex flex-col md:flex-row items-center gap-6 text-center md:text-left">
+
+                      <div className="w-20 h-20 rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center text-4xl shadow-lg">
+                        <FaMapMarkerAlt className="text-white" />
+                      </div>
+
+                      <div className="flex-1">
+                        <h4 className="text-2xl font-black text-white mb-2">
+                          Visit Our Office
+                        </h4>
+
+                        <p className="text-green-100 text-lg leading-relaxed">
+                          781, Sadar Bazaar<br />
+                          Bolaram, Secunderabad<br />
+                          Hyderabad - 500010
+                        </p>
+                      </div>
+
+                      <a
+                        href="https://maps.app.goo.gl/aByEoSmeESwE4ciMA"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="bg-white text-green-700 px-6 py-3 rounded-2xl font-bold hover:scale-105 transition-all duration-300 shadow-lg"
+                      >
+                        View Map
+                      </a>
+                    </div>
                   </div>
                 </div>
 
@@ -477,7 +513,7 @@ const VEGIFFYFAQs = () => {
                   <p className="text-green-100 mb-4">
                     100% Pure Vegetarian • Verified Vendors • Free Delivery • Secure Payments
                   </p>
-                  <button 
+                  <button
                     onClick={handleDownloadAppClick}
                     className="bg-white text-green-600 px-6 py-3 rounded-2xl font-bold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
                   >
@@ -489,14 +525,14 @@ const VEGIFFYFAQs = () => {
 
             {/* Quick Links */}
             <div className="mt-6 flex flex-wrap gap-4 justify-center">
-              <button 
+              <button
                 onClick={handleDownloadAppClick}
                 className="bg-gradient-to-r from-green-600 to-green-800 text-white px-6 py-3 rounded-2xl font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center space-x-2"
               >
                 <span>📱</span>
                 <span>Download App</span>
               </button>
-              <button 
+              <button
                 onClick={handleVendorRegistrationClick}
                 className="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 py-3 rounded-2xl font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center space-x-2"
               >
